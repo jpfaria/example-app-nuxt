@@ -1,9 +1,8 @@
 <template>
 
     <div>
-        <button @click="test()">test component</button>
+        <v-btn @click="test()" color="info">test component</v-btn>
     </div>
-
 
 </template>
 

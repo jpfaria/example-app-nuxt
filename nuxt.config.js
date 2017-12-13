@@ -6,7 +6,10 @@ module.exports = {
     },
     build: {
         vendor: ['vuetify'],
-        extractCSS: true
+        extractCSS: true,
+        extend (config) {
+            config.devtool = false
+        }
     },
     plugins: ['~/plugins/vuetify'],
     css: ['~/assets/app.styl'],

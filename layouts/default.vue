@@ -3,62 +3,42 @@
     <v-app>
 
         <v-navigation-drawer
-                :persistent="true"
-                :clipped="false"
-                :floating="false"
-                :mini-variant="false"
-                absolute
-                overflow
-                enable-resize-watcher
-                v-model="sidebar">
-
-            <v-list>
-
-                <v-list-item>
-                    <v-list-tile router nuxt href="/">
+                fixed
+                v-model="sidebar"
+                app
+        >
+            <v-list dense>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>home</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
                         <v-list-tile-title>Home</v-list-tile-title>
-                    </v-list-tile>
-                </v-list-item>
-                <v-list-item>
-                    <v-list-tile router nuxt href="/test">
-                        <v-list-tile-title>Test</v-list-tile-title>
-                    </v-list-tile>
-                </v-list-item>
-
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile @click="">
+                    <v-list-tile-action>
+                        <v-icon>contact_mail</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>Contact</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
             </v-list>
-
         </v-navigation-drawer>
-
-        <v-toolbar dark class="primary">
-            <v-toolbar-side-icon  @click.stop="sidebar = !sidebar" />
-            <v-toolbar-logo>B2W</v-toolbar-logo>
-            <v-toolbar-title class="white--text">Title</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-                <v-icon>search</v-icon>
-            </v-btn>
-            <v-btn icon>
-                <v-icon>apps</v-icon>
-            </v-btn>
-            <v-btn icon>
-                <v-icon>refresh</v-icon>
-            </v-btn>
-            <v-btn icon>
-                <v-icon>more_vert</v-icon>
-            </v-btn>
+        <v-toolbar color="indigo" dark fixed app>
+            <v-toolbar-side-icon @click.stop="sidebar = !sidebar"></v-toolbar-side-icon>
+            <v-toolbar-title>Application</v-toolbar-title>
         </v-toolbar>
-
-        <main>
-
-            <v-container fluid>
+        <v-content>
+            <v-container fluid fill-height>
                 <nuxt/>
             </v-container>
-
-        </main>
-        <v-footer class="pa-3">
-            <v-spacer></v-spacer>
+        </v-content>
+        <v-footer color="indigo" app>
             <div>© {{ footer }}</div>
         </v-footer>
+
     </v-app>
 
 </template>
@@ -68,7 +48,7 @@
         data() {
             return {
                 footer: new Date().getFullYear(),
-                sidebar: false
+                sidebar: true
             }
         }
     }
