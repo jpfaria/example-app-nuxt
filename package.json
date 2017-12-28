@@ -1,7 +1,7 @@
 {
   "name": "example-app-nuxt",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "HOST=0.0.0.0 PORT=3000 nuxt",
     "build": "nuxt build --universal",
     "start": "nuxt start",
     "generate": "nuxt generate"
